@@ -1,17 +1,20 @@
 
 import React from 'react';
-import { NavLink } from 'react-router-dom';
+import { Link } from 'react-router-dom';
+import GoogleAuth from './GoogleAuth';
 
 const Header = () => {
 
     return (
 
         <div className="ui secondary pointing menu">
-            <NavLink to="/" className="item">Streamer</NavLink>
+            <Link to="/" className="item">Streamer</Link>
+
             <div className="right menu">
-                <NavLink to="/" className="item">All Streams</NavLink>
+                <Link to="/" className="item">All Streams</Link>
+                <GoogleAuth />
             </div>
         </div>
     );
-}
+};
 export default Header;
