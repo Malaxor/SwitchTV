@@ -6,11 +6,6 @@ import { signIn, signOut } from '../actions';
 
 class GoogleAuth extends Component {
 
-    state = {
-
-        isSignedIn: null
-    };
-
     componentDidMount() {
 
         window.gapi.load('client:auth2', () => {
@@ -23,7 +18,7 @@ class GoogleAuth extends Component {
             .then(() => {
 
                 this.auth = window.gapi.auth2.getAuthInstance();
-                this.onAuthChange();
+                this.onAuthChange(this.auth.isSignedIn.get());
                 // dynamically displays whether or not a user is signed in
                 // prior to this method's utilization, you'd have to refresh the page to see the signed in/out status
                 this.auth.isSignedIn.listen(this.onAuthChange);
@@ -33,9 +28,7 @@ class GoogleAuth extends Component {
 
     onAuthChange = isSignedIn => {
 
-        isSignedIn === true ? this.props.signedIn() : this.props.signOut();
-        // this.setState({ isSignedIn: this.auth.isSignedIn.get() });
-
+        isSignedIn ? this.props.signIn() : this.props.signOut();
     };
 
     onSignInClick = () => {
@@ -50,11 +43,11 @@ class GoogleAuth extends Component {
 
     renderOffButton() {
         
-        if(this.state.isSignedIn === null) {
+        if(this.props.isSignedIn === null) {
             
             return null;
         }
-        else if(this.state.isSignedIn) {
+        else if(this.props.isSignedIn) {
 
             return (
 
@@ -88,4 +81,7 @@ class GoogleAuth extends Component {
         );
     }
 }
-export default connect(null, { signOut, signIn })(GoogleAuth);
+
+const mapStateToProps = state => ({ isSignedIn: state.auth.isSignedIn });
+
+export default connect(mapStateToProps, { signOut, signIn })(GoogleAuth);
