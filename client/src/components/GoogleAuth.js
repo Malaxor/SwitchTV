@@ -22,7 +22,7 @@ class GoogleAuth extends Component {
                 this.auth = window.gapi.auth2.getAuthInstance();
                 this.onAuthChange();
                 // dynamically displays whether or not a user is signed in
-                // prior to this method's utilization, you'd have to refresh the page to see the signed in status
+                // prior to this method's utilization, you'd have to refresh the page to see the signed in/out status
                 this.auth.isSignedIn.listen(this.onAuthChange);
             });
         });
@@ -33,18 +33,46 @@ class GoogleAuth extends Component {
         this.setState({ isSignedIn: this.auth.isSignedIn.get() });
     };
 
+    onSignIn = () => {
+
+        this.auth.signIn();
+    };
+
+    onSignOut = () => {
+
+        this.auth.signOut();
+    };
+
     renderOffButton() {
         
         if(this.state.isSignedIn === null) {
             
-            return <div>I don't know if we're signed in</div>;
+            return null;
         }
         else if(this.state.isSignedIn) {
 
-            return <div>I'm signed in</div>;
+            return (
+
+                <button 
+                    className="ui red google button"
+                    onClick={this.onSignOut}    
+                >
+                    <i className="google icon" />
+                    Sign Out
+                </button>
+            );
         }
         else {
-            return <div>I'm not signed in</div>;
+            return (
+
+                <button 
+                    className="ui red google button"
+                    onClick={this.onSignIn}
+                >
+                    <i className="google icon" />
+                    Sign In with Google
+                </button>
+            );
         }
     }
 
