@@ -1,7 +1,7 @@
 
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
-import { signIn, signOut } from '../actions';
+import { setSignIn, setSignOut } from '../actions';
 
 
 class GoogleAuth extends Component {
@@ -20,7 +20,7 @@ class GoogleAuth extends Component {
                 this.auth = window.gapi.auth2.getAuthInstance();
                 this.onAuthChange(this.auth.isSignedIn.get());
                 // dynamically displays whether or not a user is signed in
-                // prior to this method's utilization, you'd have to refresh the page to see the signed in/out status
+                // prior to this method's utilization, after signing in/out, you had to refresh the page to see the changed status
                 this.auth.isSignedIn.listen(this.onAuthChange);
             });
         });
@@ -28,7 +28,7 @@ class GoogleAuth extends Component {
 
     onAuthChange = isSignedIn => {
 
-        isSignedIn ? this.props.signIn(this.auth.currentUser.get().getId()) : this.props.signOut();
+        isSignedIn ? this.props.setSignIn(this.auth.currentUser.get().getId()) : this.props.setSignOut();
     };
 
     onSignInClick = () => {
@@ -84,4 +84,4 @@ class GoogleAuth extends Component {
 
 const mapStateToProps = state => ({ isSignedIn: state.auth.isSignedIn });
 
-export default connect(mapStateToProps, { signOut, signIn })(GoogleAuth);
+export default connect(mapStateToProps, { setSignOut, setSignIn })(GoogleAuth);
