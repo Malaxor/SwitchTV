@@ -4,12 +4,27 @@ import { Field, reduxForm } from 'redux-form';
 
 class StreamCreate extends Component {
 
-    renderInput({ input, label }) {
 
+    renderError({ error, touched }) {
+
+        if(touched && error) {
+
+            return (
+                <div className="ui message">
+                    <div className="header">{error}</div>
+                </div>
+            );
+        }
+    }
+
+    renderInput = ({ input, label, meta }) => {
+
+        const className = `field ${meta.error && meta.touched ? 'error' : ''}`
         return (
-            <div className="field">
+            <div className={className}>
                 <label>{label}</label>
                 <input {...input} />
+                <div>{this.renderError(meta)}</div>
             </div>
         );
     }
@@ -49,5 +64,6 @@ const validate = formValues => {
 
 export default reduxForm({
 
-    form: 'streamCreate'
+    form: 'streamCreate',
+    validate
 })(StreamCreate);
