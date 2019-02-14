@@ -1,11 +1,9 @@
 
 import React, { Component } from 'react';
 import { Field, reduxForm } from 'redux-form';
-import { connect } from 'react-redux';
-import { createStream } from '../../actions';
-
 
 class StreamCreate extends Component {
+
 
     renderError({ error, touched }) {
 
@@ -18,15 +16,14 @@ class StreamCreate extends Component {
             );
         }
     }
-    // Input Component
+
     renderInput = ({ input, label, meta }) => {
 
-        const className = `field ${meta.error && meta.touched ? 'error' : ''}`;
-
+        const className = `field ${meta.error && meta.touched ? 'error' : ''}`
         return (
             <div className={className}>
                 <label>{label}</label>
-                <input {...input} autoComplete="off" />
+                <input {...input} />
                 <div>{this.renderError(meta)}</div>
             </div>
         );
