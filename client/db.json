@@ -1,9 +1,14 @@
 {
   "streams": [
     {
-      "title": "Wankers",
-      "description": "A slew of wankers attack a twat",
+      "title": "My Stream ",
+      "description": "An extreme stream",
       "id": 1
+    },
+    {
+      "title": "Your Stream",
+      "description": "If I had a nickel for every dollar I spent on quarters",
+      "id": 2
     }
   ]
 }
