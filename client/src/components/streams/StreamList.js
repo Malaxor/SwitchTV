@@ -23,7 +23,6 @@ class StreamList extends Component {
             );            
         });
     }
-
     render() {
 
         return (

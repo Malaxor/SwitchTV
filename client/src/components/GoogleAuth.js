@@ -24,7 +24,7 @@ class GoogleAuth extends Component {
                 this.auth.isSignedIn.listen(this.onAuthChange);
             });
         });
-    }
+    };
 
     onAuthChange = isSignedIn => {
 
