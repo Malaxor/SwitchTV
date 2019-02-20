@@ -10,6 +10,8 @@ import {
 } from './types';
 import streams from '../api/streams';
 
+// Google Authenticate
+//=======================================================
 export const setSignIn = userId => ({
 
     type: SIGN_IN,
@@ -17,6 +19,7 @@ export const setSignIn = userId => ({
 });
 
 export const setSignOut = () => ({ type: SIGN_OUT });
+//=======================================================
 
 // INDEX
 export const fetchStreams = () => async dispatch => {

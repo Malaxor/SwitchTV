@@ -3,7 +3,6 @@ import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { setSignIn, setSignOut } from '../actions';
 
-
 class GoogleAuth extends Component {
 
     componentDidMount() {
@@ -75,6 +74,7 @@ class GoogleAuth extends Component {
     }
 
     render() {
+
         return(
 
             <div>{this.renderOffButton()}</div>
