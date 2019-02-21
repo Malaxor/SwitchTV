@@ -21,6 +21,9 @@ export const setSignIn = userId => ({
 export const setSignOut = () => ({ type: SIGN_OUT });
 //=======================================================
 
+// Calls to API
+//=======================================================
+
 // INDEX
 export const fetchStreams = () => async dispatch => {
 

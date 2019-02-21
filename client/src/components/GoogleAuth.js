@@ -29,7 +29,7 @@ class GoogleAuth extends Component {
 
         isSignedIn ? this.props.setSignIn(this.auth.currentUser.get().getId()) : this.props.setSignOut();
     };
-
+    // both signIn and signOut trigger the gapi, eventually causing re-renders
     onSignInClick = () => {
 
         this.auth.signIn();
