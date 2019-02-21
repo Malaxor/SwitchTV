@@ -18,7 +18,6 @@ class StreamCreate extends Component {
             );
         }
     }
-
     renderInput = ({ input, label, meta }) => {
 
         const className = `field ${meta.error && meta.touched ? 'error' : ''}`;
@@ -31,12 +30,10 @@ class StreamCreate extends Component {
             </div>
         );
     }
-
     onSubmit = formValues => {
 
         this.props.createStream(formValues);
     }
-
     render() {
         
         return (
