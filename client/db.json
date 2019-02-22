@@ -1,34 +1,10 @@
 {
   "streams": [
     {
-      "title": "Stream ABC",
-      "description": "This is MJ's stream",
+      "title": "This change...",
+      "description": "was made by a patch request",
       "userId": null,
       "id": 1
-    },
-    {
-      "title": "Queen",
-      "description": "Another streamer bites the dust",
-      "userId": null,
-      "id": 2
-    },
-    {
-      "title": "asdfasdf",
-      "description": "asdasdasdf",
-      "userId": "113204853147568217802",
-      "id": 3
-    },
-    {
-      "title": "Here I Am",
-      "description": "A rabbit-hearted girl",
-      "userId": "113204853147568217802",
-      "id": 4
-    },
-    {
-      "title": "what happened?",
-      "description": "you don't wanna know",
-      "userId": "113204853147568217802",
-      "id": 5
     }
   ]
 }

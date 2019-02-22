@@ -54,17 +54,21 @@ export const fetchStream = id => async dispatch => {
 };
 
 // EDIT
+// changed from put to patch request
+// put requests update all the record's properties
+// patch requests update only some specified properties of a record
 export const editStream = (id, updateValues) => async dispatch => {
 
-    const response = await streams.put(`/streams${id}`, updateValues);
+    const response = await streams.patch(`/streams/${id}`, updateValues);
 
     dispatch({ type: EDIT_STREAM, payload: response.data });
+    history.push('/');
 };
 
 // REMOVE
 export const deleteStream = id => async dispatch => {
 
-    const response = await streams.delete(`/streams${id}`);
+    const response = await streams.delete(`/streams/${id}`);
 
     dispatch({ type: DELETE_STREAM, payload: id });
 };

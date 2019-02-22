@@ -13,9 +13,10 @@ class StreamEdit extends Component {
     }
     onSubmit = formValues => {
 
-        console.log(formValues)
+        this.props.editStream(this.props.match.params.id, formValues);
     }
     render() {
+        
         return (
             <div>
                 <h3>Edit Stream</h3>
@@ -27,7 +28,6 @@ class StreamEdit extends Component {
         );
     }
 }
-
 // ownProps object is the same as props object available in the StreamEdit component
 const mapStateToProps = (state, ownProps) => ({ stream: state.streams[ownProps.match.params.id] });
 
