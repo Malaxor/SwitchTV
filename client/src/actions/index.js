@@ -22,7 +22,7 @@ export const setSignIn = userId => ({
 export const setSignOut = () => ({ type: SIGN_OUT });
 //=======================================================
 
-// Calls to API
+// Call to API
 //=======================================================
 
 // INDEX
