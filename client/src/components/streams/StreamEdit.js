@@ -1,6 +1,7 @@
 
 import React, { Component } from 'react';
-import { fetchStream } from '../../actions';
+import { fetchStream, editStream } from '../../actions';
+import StreamForm from './StreamForm';
 import { connect } from 'react-redux';
 
 class StreamEdit extends Component {
@@ -9,13 +10,24 @@ class StreamEdit extends Component {
 
         this.props.fetchStream(this.props.match.params.id);
     }
+    onSubmit = formValues => {
 
+        console.log(formValues)
+    }
     render() {
-        return <div>Edit Stream</div>
+        return (
+            <div>
+                <h3>Edit Stream</h3>
+                <StreamForm 
+                    initialValues={this.props.stream} 
+                    onSubmit={this.onSubmit} 
+                />
+            </div>
+        );
     }
 }
 
 // ownProps object is the same as props object available in the StreamEdit component
 const mapStateToProps = (state, ownProps) => ({ stream: state.streams[ownProps.match.params.id] });
 
-export default connect(mapStateToProps, { fetchStream })(StreamEdit);
+export default connect(mapStateToProps, { fetchStream, editStream })(StreamEdit);

@@ -4,7 +4,6 @@ import { Field, reduxForm } from 'redux-form';
 
 class StreamForm extends Component {
 
-
     renderError({ error, touched }) {
 
         if(touched && error) {
