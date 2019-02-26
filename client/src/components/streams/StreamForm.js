@@ -16,7 +16,7 @@ class StreamForm extends Component {
         }
     }
     renderInput = ({ input, label, meta }) => {
-
+    
         const className = `field ${meta.error && meta.touched ? 'error' : ''}`;
 
         return (
@@ -62,7 +62,7 @@ const validate = formValues => {
 export default reduxForm({
 
     form: 'streamForm',
-    // lodash won't display initialValues on page load unless this property is set to true
+    // lodash won't display initialValues on direct page load unless this property is set to true
     enableReinitialize: true,
     validate
 })(StreamForm);
