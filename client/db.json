@@ -1,3 +1,10 @@
 {
-  "streams": []
+  "streams": [
+    {
+      "title": "Not another stream!",
+      "description": "Please, science,  let me die in peace.",
+      "userId": "113204853147568217802",
+      "id": 1
+    }
+  ]
 }
