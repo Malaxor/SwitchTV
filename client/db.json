@@ -1,10 +1,22 @@
 {
   "streams": [
     {
-      "title": "Not another stream!",
-      "description": "Please, science,  let me die in peace.",
+      "title": "You there?",
+      "description": "yes, it's me",
       "userId": "113204853147568217802",
       "id": 1
+    },
+    {
+      "title": "Than again, who cares?",
+      "description": "Hello, there",
+      "userId": "113204853147568217802",
+      "id": 2
+    },
+    {
+      "title": "Pink Floyd",
+      "description": "Your Mom's a wall",
+      "userId": "113204853147568217802",
+      "id": 3
     }
   ]
 }
